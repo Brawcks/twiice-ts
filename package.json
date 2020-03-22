@@ -1,0 +1,35 @@
+{
+  "name": "twiice",
+  "version": "1.0.0",
+  "description": "Simple App to rule them all",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.tiktakweb.fr:tiktakweb/twiice.git"
+  },
+  "keywords": [
+    "app",
+    "module",
+    "erp",
+    "cms",
+    "crm"
+  ],
+  "author": "Vincent COFFIN",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^13.9.3",
+    "app-module-path": "^2.2.0",
+    "express": "^4.17.1",
+    "fs": "0.0.1-security",
+    "js-logger": "^1.6.0",
+    "pg": "^7.18.2",
+    "pg-hstore": "^2.3.3",
+    "reflect-metadata": "^0.1.13",
+    "sequelize": "^5.21.5",
+    "typeorm": "^0.2.24",
+    "xml2js": "^0.4.23"
+  }
+}
