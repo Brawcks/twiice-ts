@@ -1,0 +1,9 @@
+<twiice>
+    <record id="view_model_model_form" model="ir.ui.view">
+        <field name="name">model.model.form</field>
+        <field name="model">model.model</field>
+        <field name="arch" type="xml">
+            <h1>Mashallah</h1>
+        </field>
+    </record>
+</twiice>
