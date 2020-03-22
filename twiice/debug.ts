@@ -1,4 +1,14 @@
-module.exports = {
+const express = require('express');
+const app = express();
+
+const Tools = {
+    newRequest: (req, res, next) => {
+        Logger.debug('Handling request : ');
+        next();
+    }
+}
+
+const Logger = {
     currentDateLogs: () => {
         var currentdate = new Date(); 
         var datetime =  currentdate.getDate() + "/"
@@ -10,15 +20,20 @@ module.exports = {
         return datetime;
     },
     debug: (msg) => {
-      return console.log('\x1b[36m%s\x1b[0m', module.exports.currentDateLogs() + ' : DEBUG: ' + msg);
+      return console.log('\x1b[36m%s\x1b[0m', Logger.currentDateLogs() + ' : DEBUG: ' + msg);
     },
     info: (msg) => {
-        return console.log('\x1b[36m%s\x1b[0m', module.exports.currentDateLogs() + ' : INFO: ' + msg);
+        return console.log('\x1b[36m%s\x1b[0m', Logger.currentDateLogs() + ' : INFO: ' + msg);
     },
     warning: (msg) => {
-        return console.log('\x1b[33m%s\x1b[0m', module.exports.currentDateLogs() + ' : WARNING: ' + msg);
+        return console.log('\x1b[33m%s\x1b[0m', Logger.currentDateLogs() + ' : WARNING: ' + msg);
     },
     error: (msg, error) => {
-        return console.log('\x1b[31m', module.exports.currentDateLogs() + ' : ERROR: ' + msg + ' | ERR : ' + error);
-    },
+        return console.log('\x1b[31m', Logger.currentDateLogs() + ' : ERROR: ' + msg + ' | ERR : ' + error);
+    }
+}
+
+module.exports = {
+    tools: Tools,
+    logger: Logger,
 }
