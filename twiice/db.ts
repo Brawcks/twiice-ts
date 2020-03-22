@@ -2,7 +2,7 @@
 
 export {};
 
-const logger = require('twiice/debug');
+const logger = require('twiice/debug').logger;
 
 // IMPORTS
 import {createConnection} from "typeorm";

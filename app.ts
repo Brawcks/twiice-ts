@@ -11,18 +11,21 @@ const app = express()
 // const xml2js = require('xml2js');
 
 // Twiice utilities
-const logger = require('twiice/debug');
+const logger = require('twiice/debug').logger;
 const db = require('twiice/db');
+const routes = require('twiice/routes').routes;
+const logRequest = require('twiice/routes').logRequest;
+const PORT = 3000;
 // const models = require('twiice/models/models');
 // const views = require('twiice/views')
 
-app.get('/', function (req, res) {
-    res.send('Hello World!');
-    
-})
+// logRequest : Allow us to track and monitor activities (requests from users)
+app.use(logRequest);
+
+app.use('/', routes);
 
 db.connect.then(function () {
-    app.listen(3000, function() {
-        logger.info('Server up : listening on port 3000');
+    app.listen(PORT, function() {
+        logger.info(`Server up : listening on port ${PORT}`);
     })
 });
