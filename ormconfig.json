@@ -1,0 +1,13 @@
+{
+    "type": "postgres",
+    "host": "localhost",
+    "port": 5432,
+    "username": "vincentcoffin",
+    "password": "vincentcoffin",
+    "database": "twiice",
+    "synchronize": true,
+    "logging": true,
+    "entities": [
+       "twiice/models/*.js"
+    ]
+}
