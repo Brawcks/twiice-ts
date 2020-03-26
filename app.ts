@@ -4,7 +4,18 @@ import "reflect-metadata";
 require('app-module-path').addPath(__dirname);
 
 const express = require('express');
+const exphbs  = require('express-handlebars');
 const app = express();
+
+// Loading routes / routes utilities
+const logRequest = require('twiice/routes').logRequest;
+
+// logRequest : Allow us to track and monitor activities (requests from users)
+app.use(logRequest);
+
+app.engine('handlebars', exphbs());
+app.set('view engine', 'handlebars');
+app.set('views', './twiice/views');
 
 // Needed packages
 const fs = require('fs'); // Allow us to manage filesystem
@@ -16,17 +27,11 @@ const path = require( 'path' );
 const logger = require('twiice/debug').logger;
 const routes = require('twiice/routes').routes;
 
-// Loading routes / routes utilities
-const logRequest = require('twiice/routes').logRequest;
-
 // Loading database management
 const db = require('twiice/db');
 
 // Server side constants
 const PORT = 3000;
-
-// logRequest : Allow us to track and monitor activities (requests from users)
-app.use(logRequest);
 
 ///////////////////////////////
 ///////// LOAD MODULES FILES
