@@ -1,7 +1,6 @@
 export {};
 
 const express = require('express')
-const app = express()
 
 // ROUTER
 const Routes = express.Router();
@@ -24,7 +23,7 @@ const logRequest = function (req, res, next) {
 };
 
 Routes.get('/', (req, res) => {
-    res.send('<h1>Hello world</h1>')
+    res.send('<h1>Hello world</h1>');
 })
 
 module.exports = {
