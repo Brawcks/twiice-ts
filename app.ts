@@ -13,8 +13,8 @@ const logRequest = require('twiice/routes').logRequest;
 // logRequest : Allow us to track and monitor activities (requests from users)
 app.use(logRequest);
 
-app.engine('handlebars', exphbs());
-app.set('view engine', 'handlebars');
+app.engine('.hbs', exphbs({extname: '.hbs'}));
+app.set('view engine', '.hbs');
 app.set('views', './twiice/views');
 
 // Needed packages
