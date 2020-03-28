@@ -1,1 +1,1 @@
-node app.js
+tsc && node app.js

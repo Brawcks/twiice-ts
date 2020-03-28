@@ -14,6 +14,4 @@ const Views = {
     },
 }
 
-console.log('toto');
-
 module.exports = Views;
