@@ -4,8 +4,6 @@ const express = require('express')
 
 // Folders management
 const fs = require('fs'); // Allow us to manage filesystem
-const glob = require( 'glob' );
-const path = require( 'path' );
 
 // ROUTER
 const Routes = express.Router();
