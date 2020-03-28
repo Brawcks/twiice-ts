@@ -23,6 +23,8 @@ app.use('/static', express.static(__dirname + '/twiice/static'));
 // Needed packages
 const fs = require('fs'); // Allow us to manage filesystem
 const xml2js = require('xml2js'); // Allow us to parse xml files
+
+// Folder management
 const glob = require( 'glob' );
 const path = require( 'path' );
 

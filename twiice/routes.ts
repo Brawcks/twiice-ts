@@ -2,6 +2,11 @@ export {};
 
 const express = require('express')
 
+// Folders management
+const fs = require('fs'); // Allow us to manage filesystem
+const glob = require( 'glob' );
+const path = require( 'path' );
+
 // ROUTER
 const Routes = express.Router();
 
@@ -22,11 +27,20 @@ const logRequest = function (req, res, next) {
     }
 };
 
+const appModules = {
+    modulesList: () => {
+        return fs.readdirSync('./modules', { withFileTypes: true }).filter(dirent => dirent.isDirectory()).map(dirent => dirent.name);
+    }
+}
+
+// console.log(appModules.modulesList());
+
 Routes.get('/', (req, res) => {
-    res.send('<h1>Hello world</h1>');
+    res.render('home');
 })
 
 module.exports = {
     routes: Routes,
     logRequest: logRequest,
+    appModules: appModules,
 }
