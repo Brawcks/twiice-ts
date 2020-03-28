@@ -17,6 +17,9 @@ app.engine('.hbs', exphbs({extname: '.hbs'}));
 app.set('view engine', '.hbs');
 app.set('views', './twiice/views');
 
+// Set directory for static files
+app.use('/static', express.static(__dirname + '/twiice/static'));
+
 // Needed packages
 const fs = require('fs'); // Allow us to manage filesystem
 const xml2js = require('xml2js'); // Allow us to parse xml files

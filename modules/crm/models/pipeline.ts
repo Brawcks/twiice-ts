@@ -18,5 +18,3 @@ export class Pipeline {
     isActive: boolean;
 
 }
-
-console.log('tata');
