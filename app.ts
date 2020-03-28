@@ -1,24 +1,38 @@
 import "reflect-metadata";
 
+////////////////////
 // ADD ROOT PATH
+////////////////////
 require('app-module-path').addPath(__dirname);
 
+
+////////////////////
+// ADD EXPRESS / APP
+////////////////////
 const express = require('express');
-const exphbs  = require('express-handlebars');
 const app = express();
 
 // Loading routes / routes utilities
 const logRequest = require('twiice/routes').logRequest;
-
 // logRequest : Allow us to track and monitor activities (requests from users)
 app.use(logRequest);
 
-app.engine('.hbs', exphbs({extname: '.hbs'}));
+////////////////////////////////
+// VIEW ENGINE CONFIGURATION
+////////////////////////////////
+const exphbs  = require('express-handlebars');
+const views = require('twiice/views.ts');
+
+app.engine('.hbs', exphbs(views.config));
 app.set('view engine', '.hbs');
 app.set('views', './twiice/views');
 
 // Set directory for static files
 app.use('/static', express.static(__dirname + '/twiice/static'));
+
+////////////////////////////////
+// END ENGINE CONFIGURATION
+////////////////////////////////
 
 // Needed packages
 const fs = require('fs'); // Allow us to manage filesystem
