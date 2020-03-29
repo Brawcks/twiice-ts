@@ -27,7 +27,14 @@ const logRequest = function (req, res, next) {
 
 const appModules = {
     modulesList: () => {
-        return fs.readdirSync('./modules', { withFileTypes: true }).filter(dirent => dirent.isDirectory()).map(dirent => dirent.name);
+        let modules = fs.readdirSync('./modules', { withFileTypes: true }).filter(dirent => dirent.isDirectory()).map(dirent => dirent.name);
+        let appModules = [];
+        modules.forEach(el => {
+            // FIXME: We should be able to require without relative path, from absolute path
+            let mod = require(`../modules/${el}/description.json`);
+            appModules.push(mod);
+        });
+        return appModules;
     }
 }
 

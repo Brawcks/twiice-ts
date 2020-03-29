@@ -9,10 +9,7 @@ const Views = {
         helpers: {
             modulesList: () => {
                 return appModules.modulesList();
-            },
-            foo: () => { return 'FOO!'; },
-            bar: ['tic', 'tac', 'toe'],
-            // bar: () => { return ['tic', 'tac', 'toe'] },
+            }
         }
     },
 }
