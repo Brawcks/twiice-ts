@@ -1,0 +1,9 @@
+stages:
+- name: Compile
+  steps:
+  - runScriptConfig:
+      image: node:latest
+      shellScript: ./start.sh
+timeout: 60
+branch: {}
+notification: {}
