@@ -31,7 +31,7 @@
     "reflect-metadata": "^0.1.13",
     "sequelize": "^5.21.5",
     "typeorm": "^0.2.24",
-    "underscore": "^1.9.2",
+    "underscore": "^1.12.1",
     "xml2js": "^0.4.23"
   }
 }
